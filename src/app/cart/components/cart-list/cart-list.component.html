@@ -1,0 +1,11 @@
+<h1>Cart</h1>
+
+<div *ngIf="products.length; else empty">
+    Your cart contains the following items:
+    <ul>
+        <li *ngFor="let item of products; index as i; trackBy: trackByItems">{{ item.name }} <button (click)="onRemove(i)">remove</button></li>
+    </ul>
+</div>
+<ng-template #empty>
+    <span>Cart is empty</span>
+</ng-template>
