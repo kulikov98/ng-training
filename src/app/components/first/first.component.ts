@@ -23,7 +23,7 @@ export class FirstComponent implements OnInit {
     { value: 'low price' },
     { value: 'pefect condition' },
     { value: 'nice color' },
-  ]
+  ];
 
   constructor() { }
 

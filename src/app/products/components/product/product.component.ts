@@ -17,6 +17,6 @@ export class ProductComponent implements OnInit {
 
   onBuy(product: ProductModel): void {
     console.log(`"${product.name}" have been added to the cart`);
-    this.cartService.addProduct(product)
+    this.cartService.addProduct(product);
   }
 }

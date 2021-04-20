@@ -12,7 +12,7 @@ export class ProductsService {
     { id: '2', name: 'some name 2', description: 'some description 2', price: 2, category: Category['Camera & Photo'] },
     { id: '3', name: 'some name 3', description: 'some description 3', price: 3, category: Category['Car & Vehicle Electronics'] },
     { id: '4', name: 'some name 4', description: 'some description 4', price: 4, category: Category['Cell Phones & Accessories'] },
-  ]
+  ];
 
   constructor() { }
 
