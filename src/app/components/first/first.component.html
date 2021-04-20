@@ -1,0 +1,10 @@
+<p>Name: {{ name }}</p>
+<p>Description: {{ description }}</p>
+<p>Category: {{ category[0] }}</p>
+<p>Price: {{ price }}</p>
+<p>IsAvailable: {{ isAvailable }}</p>
+
+Advantages:
+<ul>
+    <li *ngFor="let item of advantages">{{ item.value }}</li>
+</ul>
