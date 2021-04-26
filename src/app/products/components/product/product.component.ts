@@ -10,6 +10,8 @@ import { ProductModel } from '../../models/product.model';
 export class ProductComponent implements OnInit {
   @Input() product!: ProductModel;
 
+  // Внедрите эту зависимость в родительский компонент,
+  // а тут реализуйте аутпут
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
