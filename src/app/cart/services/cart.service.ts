@@ -17,6 +17,8 @@ export class CartService {
     this.products.push(product);
   }
 
+  // Я бы не полагался на индекс в массиве,
+  // может быть лучше принимать мдентификатор товара или сам товар.
   removeProduct(index: number): void {
     this.products.splice(index, 1);
   }
