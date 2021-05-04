@@ -5,21 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FirstComponent } from './components/first/first.component';
-import { ProductComponent } from './products/components/product/product.component';
-import { ProductListComponent } from './products/components/product-list/product-list.component';
-import { CartListComponent } from './cart/components/cart-list/cart-list.component';
+import { CartModule } from './cart/cart.module';
+import { ProductsModule } from './products/products.module';
+import { OrdersModule } from './orders/orders.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent,
-    ProductComponent,
-    ProductListComponent,
-    CartListComponent,
+    FirstComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CartModule,
+    ProductsModule,
+    OrdersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
