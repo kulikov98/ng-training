@@ -2,7 +2,7 @@
     <p>Name: {{ product.name }}</p>
     <p>Description: {{ product.description }}</p>
     <p>Category: {{ product.category }}</p>
-    <p>Price: {{ product.price }}</p>
+    <p>Price: {{ product.price | currency }}</p>
     <button [disabled]="product.isAvailable === false" (click)="addToCart.emit(product)">BUY</button>
     <hr>
 </ng-container>
