@@ -24,4 +24,12 @@ export class CartListComponent implements OnInit {
     return item.id;
   }
 
+  get summ(): number {
+    return this.cartService.getSumm();
+  }
+
+  get quantity(): number {
+    return this.cartService.getQuantity();
+  }
+
 }

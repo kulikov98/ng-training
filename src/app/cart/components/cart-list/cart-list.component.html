@@ -7,6 +7,8 @@
             {{ item.name }} <button (click)="onRemove(i)">remove</button>
         </li>
     </ul>
+    <p>Quantity: {{ quantity }}</p>
+    <p>Total: {{ summ | currency }}</p>
 </div>
 <ng-template #empty>
     <span>Cart is empty</span>
