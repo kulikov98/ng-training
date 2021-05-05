@@ -2,11 +2,7 @@
 
 <div *ngIf="products.length; else empty">
     Your cart contains the following items:
-    <ul>
-        <li *ngFor="let item of products; index as i; trackBy: trackByItems">
-            {{ item.name }} <button (click)="onRemove(i)">remove</button>
-        </li>
-    </ul>
+    <app-cart-item *ngFor="let item of products; index as i; trackBy: trackByItems" [product]="item"></app-cart-item>
     <p>Quantity: {{ quantity }}</p>
     <p>Total: {{ summ | currency }}</p>
 </div>
