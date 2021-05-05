@@ -1,6 +1,6 @@
 export enum Category {
-    'Accessories & Supplies',
-    'Camera & Photo',
-    'Car & Vehicle Electronics',
-    'Cell Phones & Accessories',
+    'Apple iPhone 12',
+    'Apple iPhone 11',
+    'Apple iPhone XS',
+    'Apple iPhone XR',
 }
