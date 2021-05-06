@@ -1,11 +1,20 @@
 <h1>Cart</h1>
 
-<div *ngIf="products.length; else empty">
-    Your cart contains the following items:
-    <app-cart-item *ngFor="let item of products; index as i; trackBy: trackByItems" [product]="item"></app-cart-item>
-    <p>Quantity: {{ quantity }}</p>
-    <p>Total: {{ summ | currency }}</p>
-</div>
-<ng-template #empty>
-    <span>Cart is empty</span>
-</ng-template>
+<ng-container *ngIf="products$ | async as products">
+    <div *ngIf="products.length else empty">
+        Your cart contains the following items:
+        <app-cart-item
+            *ngFor="let item of products; index as i; trackBy: trackByItems"
+            [product]="item"
+            (increase)="onIncrease($event)"
+            (decrease)="onDecrease($event)"
+            (remove)="onRemove($event)">
+        </app-cart-item>
+
+        <p>Quantity: {{ quantity }}</p>
+        <p>Total: {{ summ | currency }}</p>
+    </div>
+    <ng-template #empty>
+        <span>Cart is empty</span>
+    </ng-template>
+</ng-container>

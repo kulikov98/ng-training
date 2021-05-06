@@ -1,7 +1,7 @@
-<div *ngIf="product !== undefined">
-    <p>{{ product.name }}</p>
-    <button (click)="onRemove(i)">remove</button>
-    <button (click)="onRemove(i)">-</button>
-    <span>10</span>
-    <button (click)="onRemove(i)">+</button>
+<div>
+    <p>{{ product.product.name }}</p>
+    <button (click)="onRemove()">remove</button>
+    <button (click)="onDecrease()">-</button>
+    <span>{{ product.quantity }}</span>
+    <button (click)="onIncrease()">+</button>
 </div>
