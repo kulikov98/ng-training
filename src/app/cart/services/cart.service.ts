@@ -8,7 +8,7 @@ import { ICartProduct } from '../models/interfaces';
 })
 export class CartService {
   products$ = new BehaviorSubject<ICartProduct[]>([]);
-  private _products: ICartProduct[] = [];
+  private products: ICartProduct[] = [];
 
   getProducts(): Observable<ICartProduct[]> {
     return this.products$.asObservable();
@@ -23,7 +23,7 @@ export class CartService {
   }
 
   removeProduct(id: string): void {
-    const updatedProducts = this._products.filter(cartProduct => cartProduct.id !== id);
+    const updatedProducts = this.products.filter(cartProduct => cartProduct.id !== id);
     this.setProducts(updatedProducts);
   }
 
@@ -45,7 +45,7 @@ export class CartService {
   }
 
   getSumm(): number {
-    return this._products.reduce((total, cartProduct) => {
+    return this.products.reduce((total, cartProduct) => {
       const { product: { price }, quantity } = cartProduct;
       const summPerProduct = price * quantity;
       return total += summPerProduct;
@@ -53,17 +53,17 @@ export class CartService {
   }
 
   getQuantity(): number {
-    return this._products.reduce((total, cartProduct) => total += cartProduct.quantity, 0);
+    return this.products.reduce((total, cartProduct) => total += cartProduct.quantity, 0);
   }
 
-  private addNewProduct(product: ProductModel) {
+  private addNewProduct(product: ProductModel): void {
     const newProduct: ICartProduct = { id: product.id, quantity: 1, product };
-    const updatedProducts = [...this._products, newProduct];
+    const updatedProducts = [...this.products, newProduct];
     this.setProducts(updatedProducts);
   }
 
   private getProductByIdOrFail(id: string): ICartProduct {
-    const product = this._products.find(cartProduct => cartProduct.id === id);
+    const product = this.products.find(cartProduct => cartProduct.id === id);
     if (product === undefined) {
       throw new Error(`Cannot find a product with id ${id} in the cart!`);
     }
@@ -71,7 +71,7 @@ export class CartService {
   }
 
   private updateProductQuantity(id: string, newQuantity: number): void {
-    const updatedProducts = this._products.reduce<ICartProduct[]>((acc, item) => {
+    const updatedProducts = this.products.reduce<ICartProduct[]>((acc, item) => {
       if (item.id === id) {
         const updatedProduct = { ...item, quantity: newQuantity };
         return [...acc, updatedProduct];
@@ -82,8 +82,8 @@ export class CartService {
     this.setProducts(updatedProducts);
   }
 
-  private setProducts(products: ICartProduct[]) {
-    this._products = products;
+  private setProducts(products: ICartProduct[]): void {
+    this.products = products;
     this.products$.next(products);
   }
 }
