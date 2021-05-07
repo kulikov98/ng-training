@@ -4,6 +4,7 @@
     <div *ngIf="products.length else empty">
         Your cart contains the following items:
         <app-cart-item
+            appHighlight
             *ngFor="let item of products; index as i; trackBy: trackByItems"
             [product]="item"
             (increase)="onIncrease($event)"
