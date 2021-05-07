@@ -8,12 +8,12 @@ export class HighlightDirective {
   private color: string | null = null;
 
   @HostListener('mouseenter')
-  onMouseOver() {
+  onMouseOver(): void {
     this.color = 'lavender';
   }
 
   @HostListener('mouseleave')
-  onMouseLeave() {
+  onMouseLeave(): void {
     this.color = null;
   }
 }
