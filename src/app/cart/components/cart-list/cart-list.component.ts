@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductModel } from 'src/app/products/models/product.model';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICartProduct } from '../../models/interfaces';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -7,21 +8,32 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss']
 })
-export class CartListComponent implements OnInit {
-  products: ProductModel[] = [];
+export class CartListComponent {
+  products$: Observable<ICartProduct[]> = this.cartService.getProducts();
 
   constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
-    this.products = this.cartService.getProducts();
-  }
-
-  onRemove(id: number): void {
+  onRemove(id: string): void {
     this.cartService.removeProduct(id);
   }
 
-  trackByItems(index: number, item: ProductModel): string {
+  onIncrease(id: string): void {
+    this.cartService.increaseProduct(id);
+  }
+
+  onDecrease(id: string): void {
+    this.cartService.decreaseProduct(id);
+  }
+
+  trackByItems(index: number, item: ICartProduct): string {
     return item.id;
   }
 
+  get summ(): number {
+    return this.cartService.getSumm();
+  }
+
+  get quantity(): number {
+    return this.cartService.getQuantity();
+  }
 }

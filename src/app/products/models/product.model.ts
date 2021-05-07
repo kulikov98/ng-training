@@ -6,6 +6,7 @@ export class ProductModel {
         public name: string,
         public description: string,
         public price: number,
+        public isAvailable: boolean,
         public category: Category,
     ) { }
 }
