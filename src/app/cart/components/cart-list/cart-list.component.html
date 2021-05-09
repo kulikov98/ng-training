@@ -1,21 +1,23 @@
-<h1>Cart</h1>
+<section class="cart-section">
+    <h1>Cart</h1>
 
-<ng-container *ngIf="products$ | async as products">
-    <div *ngIf="products.length else empty">
-        Your cart contains the following items:
-        <app-cart-item
-            appHighlight
-            *ngFor="let item of products; index as i; trackBy: trackByItems"
-            [product]="item"
-            (increase)="onIncrease($event)"
-            (decrease)="onDecrease($event)"
-            (remove)="onRemove($event)">
-        </app-cart-item>
-
-        <p>Quantity: {{ quantity }}</p>
-        <p>Total: {{ summ | currency }}</p>
+    <div class="cart-items" *ngIf="products$ | async as products">
+        <div *ngIf="products.length else empty">
+            Your cart contains the following items:
+            <app-cart-item
+                appHighlight
+                *ngFor="let item of products; index as i; trackBy: trackByItems"
+                [product]="item"
+                (increase)="onIncrease($event)"
+                (decrease)="onDecrease($event)"
+                (remove)="onRemove($event)">
+            </app-cart-item>
+    
+            <p>Quantity: {{ quantity }}</p>
+            <p>Total: {{ summ | currency }}</p>
+        </div>
+        <ng-template #empty>
+            <span>Cart is empty</span>
+        </ng-template>
     </div>
-    <ng-template #empty>
-        <span>Cart is empty</span>
-    </ng-template>
-</ng-container>
+</section>
