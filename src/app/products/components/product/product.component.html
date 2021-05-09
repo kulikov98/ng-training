@@ -1,8 +1,12 @@
 <ng-container *ngIf="product !== undefined">
-    <p>Name: {{ product.name }}</p>
-    <p>Description: {{ product.description }}</p>
-    <p>Category: {{ product.category }}</p>
-    <p>Price: {{ product.price | currency }}</p>
-    <button [disabled]="product.isAvailable === false" (click)="addToCart.emit(product)">BUY</button>
-    <hr>
+    <img class="image" [src]="product.imageUrl" [alt]="product.name" [title]="product.name">
+    <span class="category">{{ product.category }}</span>
+    <span class="name">{{ product.name }}</span>
+    <p class="description">
+        {{ product.description | slice:0:descriptionMaxLength }}{{product.description.length > descriptionMaxLength ? '...' : ''}}
+    </p>
+    <footer>
+        <span class="price">{{ product.price | currency:'₽ ':'symbol':'1.0-0' }}</span>
+        <button [disabled]="product.isAvailable === false" (click)="addToCart.emit(product)">Add to cart</button>
+    </footer>
 </ng-container>
