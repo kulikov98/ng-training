@@ -1,0 +1,12 @@
+.first-cmp {
+    @apply mt-5 mb-10 px-10 text-green-900 bg-green-400 bg-gradient-to-t from-green-500 rounded-2xl p-8 shadow-lg;
+}
+
+.product-list {
+    @apply grid grid-cols-3 gap-x-10;
+
+    h1,
+    app-product-list {
+        @apply col-span-2;
+    }
+}
