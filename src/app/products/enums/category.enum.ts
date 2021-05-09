@@ -1,6 +1,6 @@
 export enum Category {
-    'Apple iPhone 12',
-    'Apple iPhone 11',
-    'Apple iPhone XS',
-    'Apple iPhone XR',
+    Iphone12 = 'Apple iPhone 12',
+    Iphone11 = 'Apple iPhone 11',
+    IphoneXS = 'Apple iPhone XS',
+    IphoneXR = 'Apple iPhone XR',
 }
