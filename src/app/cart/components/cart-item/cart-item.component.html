@@ -1,7 +1,7 @@
-<div>
-    <p>{{ product.product.name }}</p>
-    <button (click)="onRemove()">remove</button>
-    <button (click)="onDecrease()">-</button>
+<span>{{ product.product.name }}</span>
+<div class="controls">
+    <button class="remove" (click)="onRemove()">remove</button>
+    <button class="decrease" (click)="onDecrease()">-</button>
     <span>{{ product.quantity }}</span>
-    <button (click)="onIncrease()">+</button>
+    <button class="increase" (click)="onIncrease()">+</button>
 </div>

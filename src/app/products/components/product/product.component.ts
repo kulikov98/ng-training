@@ -9,4 +9,5 @@ import { ProductModel } from '../../models/product.model';
 export class ProductComponent {
   @Input() product: ProductModel | undefined;
   @Output() addToCart = new EventEmitter<ProductModel>();
+  descriptionMaxLength = 150;
 }
