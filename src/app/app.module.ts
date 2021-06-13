@@ -9,6 +9,7 @@ import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     CartModule,
     ProductsModule,
     OrdersModule,
