@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { ICartProduct } from '../../models/interfaces';
 import { CartService } from '../../services/cart.service';
 
@@ -18,11 +19,11 @@ export class CartListComponent {
   }
 
   onIncrease(id: string): void {
-    this.cartService.increaseProduct(id);
+    this.cartService.increaseQuantity(id);
   }
 
   onDecrease(id: string): void {
-    this.cartService.decreaseProduct(id);
+    this.cartService.decreaseQuantity(id);
   }
 
   trackByItems(index: number, item: ICartProduct): string {
@@ -30,10 +31,10 @@ export class CartListComponent {
   }
 
   get summ(): number {
-    return this.cartService.getSumm();
+    return this.cartService.totalSum;
   }
 
   get quantity(): number {
-    return this.cartService.getQuantity();
+    return this.cartService.totalQuantity;
   }
 }
