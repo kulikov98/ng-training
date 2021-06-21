@@ -5,3 +5,15 @@
 .cart-items {
     @apply block bg-white p-5 rounded-lg;
 }
+
+.sort {
+    @apply mb-3 px-3 py-2 bg-gray-100 rounded-md;
+}
+
+.select {
+    @apply border py-1 px-2 rounded-sm ml-2;
+}
+
+.sort-order {
+    @apply ml-4;
+}

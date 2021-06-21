@@ -11,6 +11,13 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartListComponent {
   products$: Observable<ICartProduct[]> = this.cartService.getProducts();
+  sortOptions = {
+    name: 'product.name',
+    price: 'product.price',
+    quantity: 'quantity'
+  };
+  sortBy = this.sortOptions.name;
+  isAsc = true;
 
   constructor(private cartService: CartService) { }
 
@@ -28,6 +35,10 @@ export class CartListComponent {
 
   trackByItems(index: number, item: ICartProduct): string {
     return item.id;
+  }
+
+  onSortValueChange(event: Event): void {
+    this.sortBy = (event.target as HTMLSelectElement).value;
   }
 
   get summ(): number {
