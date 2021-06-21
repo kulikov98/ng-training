@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
   selector: '[appToggleColor]'
 })
 export class ToggleColorDirective {
-  @Input('appToggleColor') color: string = '';
+  @Input('appToggleColor') color = '';
   private defaultColor = '#fff';
 
   constructor(
@@ -12,9 +12,9 @@ export class ToggleColorDirective {
     private renderer: Renderer2
   ) { }
 
-  @HostListener('click') private onClick() {
+  @HostListener('click') private onClick(): void {
     console.log(this.color ?? this.defaultColor);
-    
+
     const hasColorStyle = !!this.elementRef.nativeElement.style.color;
     if (hasColorStyle) {
       this.renderer.removeStyle(this.elementRef.nativeElement, 'color');

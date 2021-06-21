@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.0.5] - 2021-06-20
+### Added
+- OrderByPipe
+- Ability to sort products in cart by name, quantity and price using provided order (ASC/DESC)
+### Changed
+- Apply OrderByPipe in cart-list component
+- Declare CommonModule and FormsModule only in SharedModule
+## [0.0.4] - 2021-06-20
+### Added
+- ConfigOptionsService
+- ConstantsService
+- GeneratorService, GeneratorFactory, genID
+- LocalStorageService
+- ToggleColor directive
+### Changed
+- CartService: modifications according requirements
+- FirstComponent: inject new services
+## [0.0.3] - 2021-06-13
+
+### Added
+- Styles using Tailwind CSS
 ## [0.0.2] - 2021-05-05
 ### Added
 - Modules for features (cart, orders, products, shared)

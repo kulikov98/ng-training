@@ -1,10 +1,10 @@
 import { InjectionToken, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { constants, ConstantsService } from './services/constants.service';
 import { GeneratorService } from './services/generator.service';
 import { GeneratedString, GeneratorFactory } from './services/generator.factory';
 import { LocalStorageService as LSService } from './services/local-storage.service';
 import { ConfigOptionsService } from './services/config-options.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 const LocalStorageService = new InjectionToken<string>('LocalStorageService');
@@ -12,7 +12,7 @@ const LocalStorageService = new InjectionToken<string>('LocalStorageService');
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    SharedModule
   ],
   providers: [
     ConfigOptionsService,

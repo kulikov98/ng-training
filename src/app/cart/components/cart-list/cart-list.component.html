@@ -3,10 +3,22 @@
 
     <div class="cart-items" *ngIf="products$ | async as products">
         <div *ngIf="products.length else empty">
+
+            <div *ngIf="products.length > 1" class="sort">
+                <span>Sort by:</span>
+                <select (change)="onSortValueChange($event)" class="select">
+                    <option *ngFor="let option of sortOptions | keyvalue" [value]="option.value">{{ option.key }}</option>
+                </select>
+                <label class="sort-order">
+                    <input type="checkbox" [checked]="isAsc" (change)="isAsc = !isAsc">
+                    ASC/DESC
+                </label>
+            </div>
+
             Your cart contains the following items:
             <app-cart-item
                 appHighlight
-                *ngFor="let item of products; index as i; trackBy: trackByItems"
+                *ngFor="let item of products | orderBy:sortBy:isAsc; index as i; trackBy: trackByItems"
                 [product]="item"
                 (increase)="onIncrease($event)"
                 (decrease)="onDecrease($event)"

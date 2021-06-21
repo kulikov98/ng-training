@@ -1,4 +1,5 @@
 <span>{{ product.product.name }}</span>
+<span>Price: {{ product.product.price | currency:'₽ ':'symbol':'1.0-0' }}</span>
 <div class="controls">
     <button class="remove" (click)="onRemove()">remove</button>
     <button class="decrease" (click)="onDecrease()">-</button>
