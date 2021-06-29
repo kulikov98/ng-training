@@ -5,6 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderByPipe implements PipeTransform {
 
+  // В чем смысл дженерик метода? Он явно вами не вызывается и значение для параметра, вы не задаете,
+  // а TypeScript его вычисляет
   transform<T>(value: Array<T>, key: string, isAsc: boolean = false): Array<T> {
     if (Array.isArray(value) === false) {
       return value;
