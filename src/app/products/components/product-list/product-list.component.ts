@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { EMPTY, Observable, of } from 'rxjs';
 import { CartService } from 'src/app/cart/services/cart.service';
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
@@ -10,7 +10,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products: Observable<ProductModel[]> = of();
+  products: Observable<ProductModel[]> = EMPTY; // of();
 
   constructor(
     private productsService: ProductsService,

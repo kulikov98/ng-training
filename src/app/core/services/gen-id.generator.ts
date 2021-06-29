@@ -1,4 +1,4 @@
-import { GeneratorService } from "./generator.service";
+import { GeneratorService } from './generator.service';
 
 export function* genID() {
     while (true) {

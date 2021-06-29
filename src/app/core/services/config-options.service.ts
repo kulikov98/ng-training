@@ -8,7 +8,7 @@ export class ConfigOptionsService {
   private config: Partial<IConfigOptions> = {};
 
   setConfig(config: Partial<IConfigOptions>): void {
-    this.config = { ...config };
+    this.config = { ...this.config, ...config };
   }
 
   getConfig(): Partial<IConfigOptions> {
